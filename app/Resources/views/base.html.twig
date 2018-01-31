@@ -11,21 +11,21 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/favicon-56x56.png">
+    <link rel="icon" type="image/png" sizes="56x56" href="{{ asset('images/fav-icon/favicon-56x56.png') }}">
 
 
     <!-- Main style sheet -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     <!-- responsive style sheet -->
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}">
     {% block stylesheets %}{% endblock %}
 
     <!-- Fix Internet Explorer ______________________________________-->
 
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <script src="vendor/html5shiv.js"></script>
-    <script src="vendor/respond.js"></script>
+    <script src="{{ asset('vendor/html5shiv.js') }}"></script>
+    <script src="{{ asset('vendor/respond.js') }}"></script>
     <![endif]-->
 
 </head>
@@ -1006,39 +1006,39 @@
 
     <!-- Js File_________________________________ -->
     <!-- j Query -->
-    <script type="text/javascript" src="vendor/jquery.2.2.3.min.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jquery.2.2.3.min.js') }}"></script>
 
     <!-- Bootstrap JS -->
-    <script type="text/javascript" src="vendor/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/bootstrap/bootstrap.min.js') }}"></script>
 
     <!-- Vendor js _________ -->
     <!-- revolution -->
-    <script src="vendor/revolution/jquery.themepunch.tools.min.js"></script>
-    <script src="vendor/revolution/jquery.themepunch.revolution.min.js"></script>
-    <script type="text/javascript" src="vendor/revolution/revolution.extension.slideanims.min.js"></script>
-    <script type="text/javascript" src="vendor/revolution/revolution.extension.layeranimation.min.js"></script>
-    <script type="text/javascript" src="vendor/revolution/revolution.extension.navigation.min.js"></script>
-    <script type="text/javascript" src="vendor/revolution/revolution.extension.kenburn.min.js"></script>
+    <script src="{{ asset('vendor/revolution/jquery.themepunch.tools.min.js') }}"></script>
+    <script src="{{ asset('vendor/revolution/jquery.themepunch.revolution.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/revolution/revolution.extension.slideanims.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/revolution/revolution.extension.layeranimation.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/revolution/revolution.extension.navigation.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/revolution/revolution.extension.kenburn.min.js') }}"></script>
     <!-- menu  -->
-    <script type="text/javascript" src="vendor/menu/src/js/jquery.slimmenu.js"></script>
-    <script type="text/javascript" src="vendor/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/menu/src/js/jquery.slimmenu.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jquery.easing.1.3.js') }}"></script>
     <!-- Bootstrap Select JS -->
-    <script type="text/javascript" src="vendor/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/bootstrap-select/dist/js/bootstrap-select.js') }}"></script>
     <!-- fancy box -->
-    <script type="text/javascript" src="vendor/fancy-box/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/fancy-box/jquery.fancybox.pack.js') }}"></script>
     <!-- js count to -->
-    <script type="text/javascript" src="vendor/jquery.appear.js"></script>
-    <script type="text/javascript" src="vendor/jquery.countTo.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jquery.appear.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jquery.countTo.js') }}"></script>
     <!-- MixitUp -->
-    <script type="text/javascript" src="vendor/jquery.mixitup.min.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jquery.mixitup.min.js') }}"></script>
 
     <!-- WOW js -->
-    <script type="text/javascript" src="vendor/WOW-master/dist/wow.min.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/WOW-master/dist/wow.min.js') }}"></script>
     <!-- owl.carousel -->
-    <script type="text/javascript" src="vendor/owl-carousel/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="{{ asset('vendor/owl-carousel/owl.carousel.min.js') }}"></script>
     <!-- Google map js -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjQLCCbRKFhsr8BY78g2PQ0_bTyrm_YXU" type="text/javascript"></script>
-    <script src="vendor/sanzzy-map/dist/snazzy-info-window.min.js"></script>
+    <script src="{{ asset('vendor/sanzzy-map/dist/snazzy-info-window.min.js') }}"></script>
 
 
     <!-- Theme js -->
