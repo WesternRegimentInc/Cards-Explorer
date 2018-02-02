@@ -115,7 +115,7 @@ function BannerSlidertwo () {
       delay:7000,
       navigation: {
          bullets: {
-            enable: true,
+            enable: false,
             hide_onmobile: false,
             style: "uranus",
             hide_onleave: false,
@@ -131,7 +131,8 @@ function BannerSlidertwo () {
       },
       responsiveLevels:[2220,1183,975,751],
           gridwidth:[1170,970,770,320],
-          gridheight:[940,940,800,700],
+          //gridheight:[940,940,800,700],
+          gridheight:[440,440,400,400],
           shadow:0,
           spinner:"off",
           autoHeight:"off",

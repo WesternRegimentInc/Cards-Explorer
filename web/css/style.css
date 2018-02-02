@@ -291,7 +291,7 @@ body .button-seven {
   position: absolute;
   left:0;
   right: 0;
-  top:40px;
+  top:0;
   z-index: 99;
   background: transparent;
 }
@@ -1913,7 +1913,7 @@ body .button-seven {
 .shop-page .bootstrap-select.btn-group .dropdown-menu li a span.text {font-size: 16px;}
 .shop-page .bootstrap-select.btn-group .dropdown-menu li.selected a span.text,
 .shop-page .bootstrap-select.btn-group .dropdown-menu li:hover a span.text {color: #fff;}
-.shop-page .dropdown-menu  {border: 1px solid rgba(0,0,0,0.06;)}
+.shop-page .dropdown-menu  {border: 1px solid rgba(0,0,0,0.06);}
 .shop-page{margin-bottom: 100px;}
 /* --------------------- Faq Page --------------------*/
 .faq-section {
