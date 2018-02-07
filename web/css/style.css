@@ -1,13 +1,13 @@
 /* CSS Document */
 
-/* 
-    Created on   : 20/10/2017. 
+/*
+    Created on   : 20/10/2017.
     Theme Name   : Finpro.
     Description  : Finpro - finance and business template.
     Version      : 1.0.
     Author       : @Unifytheme.
     Developed by : @Unifytheme.
-   
+
 */
 
 /* ------------------------------------------ */
@@ -76,7 +76,7 @@
 @import url('../vendor/sanzzy-map/dist/snazzy-info-window.min.css');
 
 
-/*** 
+/***
 
 ====================================================================
   Loading Transition
@@ -133,9 +133,9 @@
   font-family: 'font-awesome';
   src: url('../fonts/font-awesome/fonts/fontawesome-webfont.ttf');
   src: url('../fonts/font-awesome/fonts/fontawesome-webfont.eot'), /* IE9 Compat Modes */
-       url('../fonts/font-awesome/fonts/fontawesome-webfont.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/font-awesome/fonts/fontawesome-webfont.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../fonts/font-awesome/fonts/fontawesome-webfont.svg') format('svg'); /* Legacy iOS */
+  url('../fonts/font-awesome/fonts/fontawesome-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/font-awesome/fonts/fontawesome-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+  url('../fonts/font-awesome/fonts/fontawesome-webfont.svg') format('svg'); /* Legacy iOS */
 }
 
 body {
@@ -145,12 +145,12 @@ body {
   font-size: 16px;
   position: relative;
 }
-body .main-page-wrapper {overflow-x:hidden;} 
+body .main-page-wrapper {overflow-x:hidden;}
 .finance-theme{line-height: 28px;}
 .finance-theme a {font-weight: 500;}
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: normal;
+  font-family: inherit;
+  font-weight: 300;
 }
 h1 {font-size: 70px; font-weight: 900;}
 h2 {font-size: 42px; color:#323232;}
@@ -306,7 +306,7 @@ body .button-seven {
 .finance-header .right-side li.address {
   padding-left: 80px;
   margin-right: 50px;
-} 
+}
 .finance-header .right-side li .round-icon {
   width: 55px;
   height: 55px;
@@ -324,7 +324,7 @@ body .button-seven {
   bottom: 0;
   border-radius:30px 0px 30px 30px;
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   z-index: -1;
 }
 .finance-header .right-side li .round-icon .icon {
@@ -432,11 +432,11 @@ body .button-seven {
   color: inherit;
 }
 .hesperiden.tparrows.tp-leftarrow:before {
-  content: '';
+  content: 'ï ';
   margin: 0;
 }
 .hesperiden.tparrows.tp-rightarrow:before {
-  content: '';
+  content: 'ï¡';
   margin: 0;
 }
 #banner .tp-caption h1 {color: #282828;}
@@ -445,7 +445,7 @@ body .button-seven {
 #banner #finance-main-banner-two .tp-caption h1,
 #banner #finance-main-banner-two .tp-caption h6 {color: #fff;}
 /* ---------------------------- Finance Offer  ------------------------*/
-.finance-theme .finance-offer {margin: 100px 0 80px 0;}
+.finance-theme .finance-offer {margin: 28px 0 80px 0;}
 .finance-theme .finance-offer .title {text-align: center;}
 .finance-theme .finance-offer .title h6 {
   font-size: 16px;
@@ -488,7 +488,7 @@ body .button-seven {
 .finance-theme .finance-offer .single-offer:hover #hexagon {color: #fff;}
 .finance-theme .finance-offer .single-offer:hover {
   -webkit-box-shadow: 0px 0px 30px 0px rgba(88, 88, 88, 0.15);
-          box-shadow: 0px 0px 30px 0px rgba(88, 88, 88, 0.15);
+  box-shadow: 0px 0px 30px 0px rgba(88, 88, 88, 0.15);
   border-color: #fff;
 }
 /* ---------------------------- Theme About US  ------------------------*/
@@ -586,7 +586,7 @@ body .button-seven {
 /* ------------------------------ Theme Service --------------------------*/
 .finance-theme .our-service-style-one {
   background: #f8fafc;
-  padding: 75px 0 110px 0;
+  padding: 28px 0 110px 0;
   margin-bottom: 100px;
 }
 .finance-theme .our-service-style-one.m-fix {
@@ -617,7 +617,7 @@ body .button-seven {
 }
 .finance-theme .our-service-style-one .single-service:hover .icon {
   -webkit-transform:scale(0.9);
-          transform:scale(0.9);
+  transform:scale(0.9);
 }
 .finance-theme .our-service-style-one .single-service h5 a {
   color: #393939;
@@ -636,7 +636,7 @@ body .button-seven {
   top:50%;
   z-index: -1;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .finance-theme .our-service-style-one .single-service a.learn-more {
   font-family: 'Roboto', sans-serif;
@@ -651,7 +651,7 @@ body .button-seven {
 }
 .finance-theme .our-service-style-one .single-service:hover {
   -webkit-box-shadow: 0px 0px 30px 0px rgba(88, 88, 88, 0.10);
-          box-shadow: 0px 0px 30px 0px rgba(88, 88, 88, 0.10);
+  box-shadow: 0px 0px 30px 0px rgba(88, 88, 88, 0.10);
   border-color: #fff;
 }
 /* ------------------- Finance Project One -------------------*/
@@ -672,18 +672,18 @@ body .button-seven {
   text-align: center;
   opacity: 0;
   -webkit-transform:translateX(-100%);
-          transform:translateX(-100%);
+  transform:translateX(-100%);
 }
 .finance-theme .our-project-style-one .single-project:hover .opacity {
   opacity: 1;
   -webkit-transform:translateX(0);
-          transform:translateX(0);
+  transform:translateX(0);
 }
 .finance-theme .our-project-style-one .single-project .opacity .text {
   position: relative;
   top:50%;
   -webkit-transform:translateY(-50%);
-          transform:translateY(-50%);
+  transform:translateY(-50%);
 }
 .finance-theme .our-project-style-one .single-project:hover .opacity .text {opacity: 1;}
 .finance-theme .our-project-style-one .single-project .opacity .text p,
@@ -723,13 +723,13 @@ body .button-seven {
 .finance-theme .pricing-plan .single-price-table {padding: 35px 0 50px 0;}
 .finance-theme .clearfix:hover .single-price-table.active {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .finance-theme .pricing-plan .single-price-table:hover,
 .finance-theme .pricing-plan .single-price-table.active,
 .finance-theme .pricing-plan .single-price-table.active:hover {
   -webkit-box-shadow: 0px 0px 16px 0px rgba(88, 88, 88, 0.1);
-          box-shadow: 0px 0px 16px 0px rgba(88, 88, 88, 0.1);
+  box-shadow: 0px 0px 16px 0px rgba(88, 88, 88, 0.1);
 }
 .finance-theme .pricing-plan .single-price-table h5 {
   text-transform: uppercase;
@@ -887,7 +887,7 @@ body .button-seven {
 }
 .finance-theme .our-blog-one .blog-grid-post .single-blog:hover .img img {
   -webkit-transform:scale3D(1.1,1.1,1);
-          transform:scale3D(1.1,1.1,1);
+  transform:scale3D(1.1,1.1,1);
   opacity: 0.4;
 }
 .finance-theme .our-blog-one .blog-grid-post .single-blog {
@@ -1306,7 +1306,7 @@ body .button-seven {
   border-radius: 0px 0px 5px 5px;
   padding: 22px 0 22px 0;
   -webkit-transform-origin:0% 100%;
-          transform-origin:0% 100%;
+  transform-origin:0% 100%;
 }
 .finance-theme .our-project-style-two .single-project h5 {
   font-size: 20px;
@@ -1324,7 +1324,7 @@ body .button-seven {
   z-index: 9;
   opacity: 0;
   -webkit-transform:translateY(-100%);
-          transform:translateY(-100%);
+  transform:translateY(-100%);
 }
 .finance-theme .our-project-style-two .single-project .hover-text h5 {color: #fff;}
 .finance-theme .our-project-style-two .single-project .hover-text a {
@@ -1340,15 +1340,15 @@ body .button-seven {
   position: relative;
   top:50%;
   -webkit-transform:translateY(-50%);
-          transform:translateY(-50%);
+  transform:translateY(-50%);
 }
 .finance-theme .our-project-style-two .single-project:hover .text {
   -webkit-transform:scale(1,0);
-          transform:scale(1,0);
+  transform:scale(1,0);
 }
 .finance-theme .our-project-style-two .single-project:hover .hover-text {
   -webkit-transform:translateY(0);
-          transform:translateY(0);
+  transform:translateY(0);
   opacity: 1;
 }
 .finance-theme .our-project-style-one .project-wrapper#mixitUp-item {margin-top: 0;}
@@ -1511,7 +1511,7 @@ body .button-seven {
   margin: 0;
   border: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-top: 1px solid #f9f9f9;
   border-bottom: 1px solid #f9f9f9;
 }
@@ -1739,14 +1739,14 @@ body .button-seven {
 }
 .shop-product .single-product:hover .image img {
   -webkit-transform:scale3D(1.1,1.1,1);
-          transform:scale3D(1.1,1.1,1);
+  transform:scale3D(1.1,1.1,1);
 }
 .shop-product .single-product .info {
   border: 1px solid #f0f0f3;
   border-top: none;
   text-align: center;
   padding: 32px 0 35px 0;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
 }
 .shop-product .single-product .info h6 a {
   font-weight: 600;
@@ -2001,7 +2001,7 @@ body .button-seven {
 .si-content h4 {margin-bottom: 10px;}
 .si-has-border .si-content-wrapper {border: none;}
 .si-shadow-wrapper-top {opacity: 0;}
-/*** 
+/***
 
 ====================================================================
   Conatct Form Activation
@@ -2097,7 +2097,7 @@ body .button-seven {
 .theme-contact-page-styleOne .contactUs-address>p {margin:-7px 0 30px 0;}
 .theme-contact-page-styleOne .contactUs-address .single-address .icon {
   width: 65px;
-  height: 65px; 
+  height: 65px;
   text-align: center;
   margin-top: 7px;
   line-height: 65px;
