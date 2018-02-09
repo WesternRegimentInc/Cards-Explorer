@@ -2119,3 +2119,7 @@ body .button-seven {
   margin-top: 10px;
 }
 .finance-theme .contact-us-page {margin-bottom: 110px;}
+finance-offer col-md-2{
+  padding-left: 3px;
+  padding-right: 3px;
+}
