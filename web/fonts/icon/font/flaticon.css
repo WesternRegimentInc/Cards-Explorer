@@ -24,9 +24,9 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-        font-size: inherit;
-font-style: normal;
-  color: inherit;
+    font-size: inherit;
+    font-style: normal;
+    color: inherit;
 }
 
 .flaticon-sheet:before { content: "\f100"; }
