@@ -51,13 +51,12 @@
         <div class="theme-main-menu">
             <div class="container">
                 <div class="main-container clearfix">
-                    <div class="logo float-left"><a href="index.html"><img src="images/logo/logo.png" alt="Logo"></a></div>
+                    <div class="logo float-left"><a href="{{ path('homepage') }}"><img src="images/logo/logo.png" alt="Logo"></a></div>
                     <!-- ============== Menu Warpper ================ -->
                     <div class="menu-wrapper float-right">
                         <nav id="mega-menu-holder">
                             <ul class="clearfix">
-                                <li class="active"><a href="#">Home</a>
-                                </li>
+                                <li class="active"><a href="{{ path('homepage') }}">Home</a></li>
                                 <li><a href="#">Project</a></li>
                                 <li><a href="#">Pages</a></li>
                                 <li><a href="#">News</a></li>
@@ -72,18 +71,6 @@
 
     {%  block body %} {% endblock %}
 
-    <!--
-    =============================================
-        Bottom Footer Banner
-    ==============================================
-    -->
-    <div class="bottom-footer-banner">
-        <div class="container">
-            <h3 class="float-left">Have any question or need any <span class="f-s-color">business consultation?</span></h3>
-            <a href="contact-us.html" class="float-right button-five">Contact Us Now!!</a>
-        </div>
-    </div>
-
 
     <!--
     =============================================
@@ -94,7 +81,7 @@
         <div class="container">
             <div class="top-footer row">
                 <div class="col-md-3 col-sm-5 col-xs-12 footer-logo">
-                    <a href="#"><img src="images/logo/logo3.png" alt="Logo"></a>
+                    <a href="{{ path('homepage') }}"><img src="images/logo/logo3.png" alt="Logo"></a>
                     <p>Lorem ipsum dolor  amet natum latine copiosa at quo, suas labore saperet  has there any quote for write lorem percit latineu suas dummy.</p>
                 </div> <!-- /.footer-logo -->
 
