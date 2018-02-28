@@ -55,6 +55,9 @@ DirectoryIndex app.php
 
     # Rewrite all other queries to the front controller.
     RewriteRule ^ %{ENV:BASE}/app.php [L]
+
+    # Passing through the Url rewriting for all blog/ urls
+    RewriteRule ^blog/(.*)$ blog/$1 [PT]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
@@ -66,3 +69,6 @@ DirectoryIndex app.php
         # RedirectTemp cannot be used instead
     </IfModule>
 </IfModule>
+
+# Passing through the Url rewriting for all blog/ urls
+RewriteRule ^blog/(.*)$ blog/$1 [PT]
