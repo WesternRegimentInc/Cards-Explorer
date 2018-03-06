@@ -55,11 +55,6 @@ DirectoryIndex app.php
 
     # Rewrite all other queries to the front controller.
     RewriteRule ^ %{ENV:BASE}/app.php [L]
-
-    # Redirect Trailing Slashes If Not A Folder...
-    #RewriteCond %{REQUEST_FILENAME} !-d
-    #RewriteCond %{REQUEST_URI} (.+)/$
-    #RewriteRule ^ %1 [L,R=301]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
@@ -71,6 +66,3 @@ DirectoryIndex app.php
         # RedirectTemp cannot be used instead
     </IfModule>
 </IfModule>
-
-# Passing through the Url rewriting for all blog/ urls
-RewriteRule ^blog/(.*)$ blog/$1 [PT]
