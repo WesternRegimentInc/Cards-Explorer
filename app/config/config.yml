@@ -53,11 +53,19 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #path: '%database_path%'
+        types:
+            json: Sonata\Doctrine\Types\JsonType
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+        entity_managers:
+            default:
+                mappings:
+                    ApplicationSonataUserBundle: ~
+                    SonataUserBundle: ~
+                    FOSUserBundle: ~
+                naming_strategy: doctrine.orm.naming_strategy.underscore
+                auto_mapping: true
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -76,7 +84,7 @@ sonata_core:
             enabled: false
 
 sonata_block:
-    default_contexts: [sonata_page_bundle]
+    default_contexts: [cms]
     blocks:
         sonata.admin.block.admin_list:
             contexts:   [admin]
@@ -97,3 +105,48 @@ sonata_block:
         #    templates:
         #       - { name: 'Simple', template: '@AcmeDemo/Block/demo_simple.html.twig' }
         #       - { name: 'Big',    template: '@AcmeDemo/Block/demo_big.html.twig' }
+
+sonata_user:
+    security_acl: true
+    manager_type: orm # can be orm or mongodb
+    class:
+        user: Application\Sonata\UserBundle\Entity\User
+        group: Application\Sonata\UserBundle\Entity\Group
+
+    admin:     # Admin Classes
+        user:
+            class:          Sonata\UserBundle\Admin\Entity\UserAdmin
+            controller:     SonataAdminBundle:CRUD
+            translation:    SonataUserBundle
+
+        group:
+            class:          Sonata\UserBundle\Admin\Entity\GroupAdmin
+            controller:     SonataAdminBundle:CRUD
+            translation:    SonataUserBundle
+
+
+fos_user:
+    db_driver:      orm # can be orm or odm
+    firewall_name:  main
+    user_class:     Application\Sonata\UserBundle\Entity\User
+
+    profile:
+        # Authentication Form
+        form:
+            type:               fos_user_profile
+            name:               fos_user_profile_form
+            validation_groups:  [Authentication] # Please note : this is not the default value
+
+    group:
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)
+
+    service:
+        user_manager: sonata.user.orm.user_manager
+
+    from_email:
+        address: "%mailer_user%"
+        sender_name: "%mailer_user%"
+
+
+
