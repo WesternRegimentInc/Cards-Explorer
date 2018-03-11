@@ -34,4 +34,32 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
+    admin.card_category:
+        class: AppBundle\Admin\CardCategory
+        arguments: [~, AppBundle\Entity\CardCategory, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Card Category, group: Cards }
+        calls:
+            - [ setLabelTranslatorStrategy, ["@sonata.admin.label.strategy.underscore"]]
+        public: true
 
+    admin.card_to_category:
+        class: AppBundle\Admin\CardToCategories
+        arguments: [~, AppBundle\Entity\CardToCategories, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Card To Category, group: Cards }
+        calls:
+            - [ setLabelTranslatorStrategy, ["@sonata.admin.label.strategy.underscore"]]
+        public: true
+
+    admin.card:
+        class: AppBundle\Admin\Cards
+        arguments: [~, AppBundle\Entity\Cards, ~]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              label: Cards
+              group: Cards
+        calls:
+            - [ setLabelTranslatorStrategy, ["@sonata.admin.label.strategy.underscore"]]
+        public: true

@@ -64,6 +64,9 @@ doctrine:
                     ApplicationSonataUserBundle: ~
                     SonataUserBundle: ~
                     FOSUserBundle: ~
+                    SonataMediaBundle: ~
+                    ApplicationSonataClassificationBundle: ~
+                    SonataClassificationBundle: ~
                 naming_strategy: doctrine.orm.naming_strategy.underscore
                 auto_mapping: true
 
@@ -124,6 +127,56 @@ sonata_user:
             controller:     SonataAdminBundle:CRUD
             translation:    SonataUserBundle
 
+sonata_admin:
+    dashboard:
+        groups:
+
+sonata_classification:
+    class:
+        tag: Application\Sonata\ClassificationBundle\Entity\Tag
+        category: Application\Sonata\ClassificationBundle\Entity\Category
+        collection: Application\Sonata\ClassificationBundle\Entity\Collection
+        context: Application\Sonata\ClassificationBundle\Entity\Context
+
+sonata_media:
+    # if you don't use default namespace configuration
+    #class:
+    #    media: MyVendor\MediaBundle\Entity\Media
+    #    gallery: MyVendor\MediaBundle\Entity\Gallery
+    #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr it is mandatory to choose one here
+    default_context: default # you need to set a context
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+                - sonata.media.provider.vimeo
+
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+            directory:  "%kernel.root_dir%/../public/uploads/media" #flex
+            #directory:  "%kernel.root_dir%/../web/uploads/media" #non-flex
+            create:     false
+
+    providers:
+        image:
+            resizer: sonata.media.resizer.square
+
+    class:
+        media: Application\Sonata\MediaBundle\Entity\Media
+        gallery: Application\Sonata\MediaBundle\Entity\Gallery
+        gallery_has_media: Application\Sonata\MediaBundle\Entity\GalleryHasMedia
 
 fos_user:
     db_driver:      orm # can be orm or odm
@@ -147,6 +200,7 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+
 
 
 

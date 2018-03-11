@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
 
 	        // These are the other bundles the SonataAdminBundle relies on
+	        new Sonata\MediaBundle\SonataMediaBundle(),
 	        new Sonata\CoreBundle\SonataCoreBundle(),
 	        new Sonata\BlockBundle\SonataBlockBundle(),
 	        new Knp\Bundle\MenuBundle\KnpMenuBundle(),
@@ -28,6 +29,11 @@ class AppKernel extends Kernel
 	        new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
 	        new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
 	        new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+	        new Sonata\ClassificationBundle\SonataClassificationBundle(),
+	        new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
+
+	        new JMS\SerializerBundle\JMSSerializerBundle(),
+	        new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
