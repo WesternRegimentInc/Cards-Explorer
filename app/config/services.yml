@@ -56,10 +56,7 @@ services:
         class: AppBundle\Admin\Cards
         arguments: [~, AppBundle\Entity\Cards, ~]
         tags:
-            - name: sonata.admin
-              manager_type: orm
-              label: Cards
-              group: Cards
+            - { name: sonata.admin, manager_type: orm, label: Cards, group: Cards }
         calls:
             - [ setLabelTranslatorStrategy, ["@sonata.admin.label.strategy.underscore"]]
         public: true
