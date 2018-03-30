@@ -23,13 +23,13 @@
 define('DB_NAME', 'cards_blog');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'kenny');
 
 /** MySQL database password */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'REwq$#21');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', '159.89.237.149');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
