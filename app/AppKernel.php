@@ -31,9 +31,12 @@ class AppKernel extends Kernel
 	        new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
 	        new Sonata\ClassificationBundle\SonataClassificationBundle(),
 	        new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
+	        new Kayue\WordpressBundle\KayueWordpressBundle(),
 
 	        new JMS\SerializerBundle\JMSSerializerBundle(),
 	        new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+            //new KayueWordpressBundle\KayueWordpressBundle(),
+	        //new Symfony\Bundle\DebugBundle\DebugBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

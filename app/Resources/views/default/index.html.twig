@@ -267,39 +267,25 @@
             <div class="row">
                 <div class="blog-grid-post col-md-12 col-xs-12">
                     <div class="row">
-                        <div class="col-sm-4">
-                            <div class="single-blog">
-                                <div class="img"><img src="images/blog/18.jpg" alt="Image"></div>
-                                <div class="post">
-                                    <span>13 Feb, 2016  /  Business</span>
-                                    <h5><a href="blog-details.html" class="tran3s">How to become a best sales marketer in a year</a></h5>
-                                    <p>Lorem ipsum dolor sit amet qu modo expeten dis reformidans,appetere sententiae.. </p>
-                                    <a href="blog-details.html" class="learn-more tran3s">Learn More</a>
-                                </div> <!-- /.post -->
-                            </div> <!-- /.single-blog -->
-                        </div> <!-- /.col- -->
-                        <div class="col-sm-4">
-                            <div class="single-blog">
-                                <div class="img"><img src="images/blog/19.jpg" alt="Image"></div>
-                                <div class="post">
-                                    <span>13 Feb, 2016  /  Business</span>
-                                    <h5><a href="blog-details.html" class="tran3s">How to become a best sales marketer in a year</a></h5>
-                                    <p>Lorem ipsum dolor sit amet qu modo expeten dis reformidans,appetere sententiae.. </p>
-                                    <a href="blog-details.html" class="learn-more tran3s">Learn More</a>
-                                </div> <!-- /.post -->
-                            </div> <!-- /.single-blog -->
-                        </div> <!-- /.col- -->
-                        <div class="col-sm-4">
-                            <div class="single-blog">
-                                <div class="img"><img src="images/blog/19.jpg" alt="Image"></div>
-                                <div class="post">
-                                    <span>13 Feb, 2016  /  Business</span>
-                                    <h5><a href="blog-details.html" class="tran3s">How to become a best sales marketer in a year</a></h5>
-                                    <p>Lorem ipsum dolor sit amet qu modo expeten dis reformidans,appetere sententiae.. </p>
-                                    <a href="blog-details.html" class="learn-more tran3s">Learn More</a>
-                                </div> <!-- /.post -->
-                            </div> <!-- /.single-blog -->
-                        </div> <!-- /.col- -->
+                        {% if post is not defined %}
+                            {# do something #}
+                        {% else %}
+                            {% for post in post %}
+                                {% if post.type == 'post' and post.status == 'publish' %}
+                                    <div class="col-sm-4">
+                                        <div class="single-blog">
+                                            <div class="img"><img src="images/blog/18.jpg" alt="Image"></div>
+                                            <div class="post">
+                                                <span>{{ post.date|date('d M, Y') }}  /  Business</span>
+                                                <h5><a href="{{ post.guid }}" class="tran3s">{{ post.title }}</a></h5>
+                                                <p>{{ post.content|length > 50 ? post.content|slice(0, 50) ~ '...' : post.content }} </p>
+                                                <a href="{{ post.guid }}" class="learn-more tran3s">Learn More</a>
+                                            </div> <!-- /.post -->
+                                        </div> <!-- /.single-blog -->
+                                    </div> <!-- /.col- -->
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
                     </div> <!-- /.row -->
                 </div> <!-- /.blog-grid-post -->
             </div>

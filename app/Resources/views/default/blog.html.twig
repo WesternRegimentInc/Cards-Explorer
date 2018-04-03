@@ -1,0 +1,5 @@
+{% for post in post %}
+    {% if post.type == 'post' and post.status == 'publish' %}
+        {{ post.getUser().getDisplayName() }}
+    {% endif %}
+{% endfor %}

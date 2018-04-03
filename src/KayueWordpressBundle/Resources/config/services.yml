@@ -1,0 +1,4 @@
+services:
+#    kayue_wordpress.example:
+#        class: KayueWordpressBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

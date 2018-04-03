@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9aebe29e2b7671fb1dcff9bec808f8e",
+    "content-hash": "7b03acc53444aaa37df5124db5550a4d",
     "packages": [
         {
             "name": "amazonwebservices/aws-sdk-for-php",
@@ -2594,6 +2594,51 @@
                 "xml"
             ],
             "time": "2017-12-08T19:49:08+00:00"
+        },
+        {
+            "name": "kayue/kayue-wordpress-bundle",
+            "version": "v3.2.4",
+            "target-dir": "Kayue/WordpressBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kayue/KayueWordpressBundle.git",
+                "reference": "e7de722a3fae43604d3ecdf10ea3586127731c45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kayue/KayueWordpressBundle/zipball/e7de722a3fae43604d3ecdf10ea3586127731c45",
+                "reference": "e7de722a3fae43604d3ecdf10ea3586127731c45",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "~2.2,>=2.2.3",
+                "php": ">=5.3.3",
+                "symfony/symfony": ">=2.1"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Kayue\\WordpressBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Support for authenticating WordPress users in Symfony2.",
+            "homepage": "http://github.com/kayue/KayueWordpressBundle",
+            "keywords": [
+                "Authentication",
+                "Symfony2",
+                "firewall",
+                "security",
+                "symfony",
+                "wordpress"
+            ],
+            "time": "2018-02-13T09:34:18+00:00"
         },
         {
             "name": "knplabs/gaufrette",
