@@ -33,4 +33,9 @@ media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
 
+wordpress_bundle:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix: /blog
+
+
 

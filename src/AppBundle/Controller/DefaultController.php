@@ -44,21 +44,6 @@ class DefaultController extends Controller
 	{
 		$repo = $this->get('kayue_wordpress')->getManager()->getRepository('KayueWordpressBundle:Post');
 		$post = $repo->findBy(array(), array('id' => 'DESC'),10);
-/*
-		foreach ($post as $post){
-			echo $post->getTitle() , "\n";
-			echo $post->getUser()->getDisplayName() , "\n";
-			echo $post->getContent() , "\n";
-			echo "<br /><br />";
-
-			foreach($post->getTaxonomies()->filter(function(Taxonomy $tax) {
-				// Only return categories, not tags or anything else.
-				return 'category' === $tax->getName();
-			}) as $tax) {
-				echo $tax->getTerm()->getName() . "\n";
-			}
-		}
-*/
 		return $this->render('default/blog.html.twig', [
 			'post' => $post,
 		]);

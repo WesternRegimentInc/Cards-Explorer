@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CardCategory
  *
- * @ORM\Table(name="card_category")
+ * @ORM\Table(name="card_categories")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CardCategoryRepository")
  */
 class CardCategory

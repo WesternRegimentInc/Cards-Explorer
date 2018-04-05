@@ -1,5 +1,5 @@
 {% for post in post %}
     {% if post.type == 'post' and post.status == 'publish' %}
-        {{ post.getUser().getDisplayName() }}
+        {{ path('kayue_wordpress_shortcode_gallery', { 'id': post.id }) }}
     {% endif %}
 {% endfor %}

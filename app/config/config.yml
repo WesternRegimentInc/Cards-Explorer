@@ -51,6 +51,7 @@ doctrine:
                 user:     "%database_user%"
                 password: "%database_password%"
                 charset:  UTF8
+
             cms:
                 driver:   pdo_mysql
                 host:     "%database_host_wp%"
@@ -87,7 +88,6 @@ doctrine:
                 connection: cms
                 mappings:
                     KayueWordpressBundle: ~
-                    AppBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:

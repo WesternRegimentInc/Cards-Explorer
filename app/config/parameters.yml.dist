@@ -9,11 +9,11 @@ parameters:
     database_password: ~
 
     # Second Database connection
-    database_host_wp: 127.0.0.1
+    database_host_wp: 159.89.237.149
     database_port_wp: ~
     database_name_wp: symfony
-    database_user_wp: root
-    database_password_wp: ~
+    database_user_wp: kenny
+    database_password_wp: 'REwq$#21'
 
     # You should uncomment this if you want to use pdo_sqlite
     #database_path: '%kernel.project_dir%/var/data/data.sqlite'
