@@ -6,7 +6,7 @@
             <ul id="sidebarnav">
                 <li class="nav-devider"></li>
                 <li class="nav-label">Home</li>
-                <li> <a href="#"><i class="fa fa-tachometer"></i>Dashboard</a></li>
+                <li> <a href="{{ route('admin.dashboard') }}"><i class="fa fa-tachometer"></i>Dashboard</a></li>
                 <li class="nav-label">Others</li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-credit-card"></i><span class="hide-menu">Cards </span></a>
                     <ul aria-expanded="false" class="collapse">
