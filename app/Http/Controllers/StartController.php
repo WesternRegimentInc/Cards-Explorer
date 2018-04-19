@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CardCategory;
 use Corcel\Model\Post;
 use Illuminate\Http\Request;
 

@@ -168,6 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
 	    Corcel\Laravel\CorcelServiceProvider::class,
+	    App\Providers\ViewsProvider::class,
 
         /*
          * Application Service Providers...

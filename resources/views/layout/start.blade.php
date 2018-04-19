@@ -60,8 +60,11 @@
                                 <li>
                                     <a href="#">Categories</a>
                                     <ul class="dropdown">
-                                        <li><a href="services-v1.html">Service Version-1</a></li>
-                                        <li><a href="services-v2.html">Service Version-2</a></li>
+                                        @if(isset($menu_category))
+                                            @foreach($menu_category as $menu)
+                                                <li><a href="#">{{ $menu->name }}</a></li>
+                                            @endforeach
+                                        @endif
                                     </ul>
                                 </li>
                                 <li><a href="#">Card Company</a></li>
