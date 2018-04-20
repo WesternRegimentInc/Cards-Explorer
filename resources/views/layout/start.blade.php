@@ -65,7 +65,6 @@
                                                 <li><a href="#">{{ $menu->name }}</a></li>
                                             @endforeach
                                         @endif
-                                        {{ dd($menu_category) }}
                                     </ul>
                                 </li>
                                 <li><a href="#">Card Company</a></li>
