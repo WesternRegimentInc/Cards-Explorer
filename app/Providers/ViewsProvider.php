@@ -16,9 +16,9 @@ class ViewsProvider extends ServiceProvider
     {
 	    view()->composer('*', function ($view)
 	    {
-		    $category = CardCategory::all();
+		    //$category = CardCategory::all();
 
-		    $view->with('menu-category', $category);
+		    //$view->with('menu_category', $category);
 	    });
     }
 

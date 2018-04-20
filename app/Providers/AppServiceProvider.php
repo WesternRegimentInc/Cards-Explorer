@@ -15,8 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-	    $category = CardCategory::all();
-	    View::share('menu-Scategory', $category);
+    	//
     }
 
     /**
