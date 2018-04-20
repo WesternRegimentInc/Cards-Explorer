@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\CardCategory;
+use Asm89\Twig\CacheExtension\Exception\BaseException;
 use Corcel\Model\Post;
 use Illuminate\Http\Request;
 
-class StartController extends Controller
+class StartController extends BaseController
 {
 	/**
 	 * Show the application dashboard.
