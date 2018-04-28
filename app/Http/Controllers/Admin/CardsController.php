@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Card;
+use App\CardCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -20,7 +21,8 @@ class CardsController extends Controller
     }
 
 	public function create() {
-		return view('admin.cards.create');
+		$categories = CardCategory::all();
+		return view('admin.cards.create', compact('categories'));
 	}
 
 	public function store(Request $request) {
@@ -38,9 +40,10 @@ class CardsController extends Controller
 	}
 
 	public function edit($id = "") {
+		$categories = CardCategory::all();
 		$edit = $id;
 		$card = Card::where('id','=',$id)->first();
-		return view('admin.cards.create', compact('card', 'edit'));
+		return view('admin.cards.create', compact('card', 'edit','categories'));
 	}
 
 	public function update(Request $request, $id) {

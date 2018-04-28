@@ -29,8 +29,23 @@
                                 <input name="title" type="text" class="form-control" value=" @if(isset($edit)) {{ $card->title }} @else {{ old('title') }} @endif" placeholder="Card Name">
                             </div>
                             <div class="form-group">
+                                <label>Category <span class="text-danger">*</span></label>
+                                <select class="form-control" name="status">
+                                    <option value="">None</option>
+                                    @if(isset($categories))
+                                        @foreach($categories as $category)
+                                            <option @if( old('status') == $category->name) selected @endif value="{{ $category->name }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>Info <span class="text-danger">*</span></label>
                                 <textarea name="info" class="form-control" placeholder="Brief Info">@if(isset($edit)) {{ $card->info }} @else {{ old('info') }} @endif</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Card Details <span class="text-danger">*</span></label>
+                                <textarea name="details" class="form-control" placeholder="Card Details">@if(isset($edit)) {{ $card->info }} @else {{ old('info') }} @endif</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Status <span class="text-danger">*</span></label>
@@ -38,12 +53,14 @@
                                     <select class="form-control" name="status">
                                         <option @if($card->status == '') selected @endif value="">None</option>
                                         <option @if($card->status == 'active') selected @endif value="active">Active</option>
+                                        <option @if($card->status == 'draft') selected @endif value="active">Draft</option>
                                         <option @if($card->status == 'deactivated') selected @endif value="deactivated">Deactivated</option>
                                     </select>
                                 @else
                                     <select class="form-control" name="status">
                                         <option @if( old('status') == '') selected @endif value="">None</option>
                                         <option @if( old('status') == 'active') selected @endif value="active">Active</option>
+                                        <option @if( old('status') == 'draft') selected @endif value="active">Draft</option>
                                         <option @if( old('status') == 'deactivated') selected @endif value="deactivated">Deactivated</option>
                                     </select>
                                 @endif

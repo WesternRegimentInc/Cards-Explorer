@@ -12,7 +12,7 @@
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="{{ route('admin.cards') }}">View Cards</a></li>
                         <li><a href="{{ route('admin.cards.category') }}">Card Category</a></li>
-                        <li><a href="{{ route('admin.card.to.category') }}">Card To Category</a></li>
+                        <!--<li><a href="{{-- route('admin.card.to.category') --}}">Card To Category</a></li>-->
                     </ul>
                 </li>
                 <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Users</span></a>

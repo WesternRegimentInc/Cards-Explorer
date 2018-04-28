@@ -22,7 +22,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
 		//Start your life here...
 		Route::get('/', 'DashBoardController@index')->name('admin.dashboard');
-		//Route::get('/dashboard', 'DashBoardController@index')->name('admin.dashboard');//Dashboard routes
+		Route::get('/dashboard', 'DashBoardController@index')->name('admin.dashboard');//Dashboard routes
 		/*
 		 * Handling Users and Admin
 		 */
@@ -58,6 +58,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 		Route::post('cards/category/{id}/update', 'CardCategoryController@update')->name('admin.cards.category.update');
 		Route::get('/cards/category/{id}/delete', 'CardCategoryController@destroy')->name('admin.cards.category.delete');
 		//Cards to Category
-		Route::get('/card/to/category', 'CardCategoryController@index')->name('admin.card.to.category');
+		//Route::get('/card/to/category', 'CardCategoryController@index')->name('admin.card.to.category');
 	});
 });
