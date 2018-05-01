@@ -13,6 +13,21 @@
                             </a>
                         </span>
                         <div class="clearfix"></div>
+                        @if(isset($edit))
+                            @if($edit)
+                                <div class="text-center">
+                                    @if(isset($card->image))
+                                        @if($card->image == 'images/user.png')
+                                            <img src="{{ asset('/') }}images/img.jpg" alt="..." class="img-circle profile_img">
+                                        @else
+                                            <a href="{{ asset('storage/images/'. $card->id . '/' .$card->image) }}" class="text-center"><img src="{{ asset('storage/images/'. $card->id . '/' .$card->image) }}" alt="logo" width="140" height="140" border="0" class="img-circle"></a>
+                                        @endif
+                                    @else
+                                        <img src="{{ asset('/') }}images/img.jpg" width="140" height="140" border="0" alt="logo" class="img-circle profile_img">
+                                    @endif
+                                </div>
+                            @endif
+                        @endif
                         @if(!$errors->isEmpty())
                             <div class="alert alert-danger">
                                 <ul class="list-unstyled">
@@ -22,7 +37,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="@if(isset($edit)) {{ route('admin.card.edit', ['id' => $card->id]) }} @else {{ route('admin.card.create') }} @endif" method="POST">
+                        <form action="@if(isset($edit)) {{ route('admin.card.edit', ['id' => $card->cid]) }} @else {{ route('admin.card.create') }} @endif" enctype="multipart/form-data" method="POST">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label>Card Name <span class="text-danger">*</span></label>
@@ -30,35 +45,67 @@
                             </div>
                             <div class="form-group">
                                 <label>Category <span class="text-danger">*</span></label>
-                                <select class="form-control" name="status">
-                                    <option value="">None</option>
-                                    @if(isset($categories))
-                                        @foreach($categories as $category)
-                                            <option @if( old('status') == $category->name) selected @endif value="{{ $category->name }}">{{ $category->name }}</option>
-                                        @endforeach
+                                <select class="form-control" name="card_category">
+                                    @if(isset($edit))
+                                        <option @if( $card->card_category == "") selected @endif value="">None</option>
+                                        @if(isset($categories))
+                                            @foreach($categories as $category)
+                                                <option @if( $card->card_category == $category->name) selected @endif value="{{ $category->name }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    @else
+                                        <option value="">None</option>
+                                        @if(isset($categories))
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        @endif
                                     @endif
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Info <span class="text-danger">*</span></label>
-                                <textarea name="info" class="form-control" placeholder="Brief Info">@if(isset($edit)) {{ $card->info }} @else {{ old('info') }} @endif</textarea>
+                                <textarea name="info" class="form-control" rows="3" placeholder="Brief Info">@if(isset($edit)) {{ $card->info }} @else {{ old('info') }} @endif</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Card Details <span class="text-danger">*</span></label>
-                                <textarea name="details" class="form-control" placeholder="Card Details">@if(isset($edit)) {{ $card->info }} @else {{ old('info') }} @endif</textarea>
+                                <textarea name="card_details" class="form-control" rows="3" placeholder="Card Details">@if(isset($edit)) {{ $card->card_details }} @else {{ old('card_details') }} @endif</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Apply Link <span class="text-danger">*</span></label>
+                                <input name="apply_link" type="text" class="form-control" value="@if(isset($edit)) {{ $card->apply_link }} @else {{ old('apply_link') }} @endif" placeholder="Apply Link">
+                            </div>
+                            <div class="form-group">
+                                <label>Intro_apr <span class="text-danger">*</span></label>
+                                <input name="intro_apr" type="text" class="form-control" value=" @if(isset($edit)) {{ $card->intro_apr }} @else {{ old('intro_apr') }} @endif" placeholder="intro_apr">
+                            </div>
+                            <div class="form-group">
+                                <label>regular_apr <span class="text-danger">*</span></label>
+                                <input name="regular_apr" type="text" class="form-control" value=" @if(isset($edit)) {{ $card->regular_apr }} @else {{ old('regular_apr') }} @endif" placeholder="regular_apr">
+                            </div>
+                            <div class="form-group">
+                                <label>Annnual Fee <span class="text-danger">*</span></label>
+                                <input name="annual_fee" type="text" class="form-control" value=" @if(isset($edit)) {{ $card->annual_fee }} @else {{ old('annual_fee') }} @endif" placeholder="Annual Fee">
+                            </div>
+                            <div class="form-group">
+                                <label>Credit Score <span class="text-danger">*</span></label>
+                                <input name="credit_score" type="text" class="form-control" value="@if(isset($edit)) {{ $card->credit_score }} @else {{ old('credit_score') }} @endif" placeholder="Credit Score">
+                            </div>
+                            <div class="form-group">
+                                <label>Image <span class="text-danger">*</span></label> <br />
+                                Select an image(leave empty if you don't want to change your photo)
+                                <input type="file" name="image" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Status <span class="text-danger">*</span></label>
                                 @if(isset($edit))
                                     <select class="form-control" name="status">
-                                        <option @if($card->status == '') selected @endif value="">None</option>
                                         <option @if($card->status == 'active') selected @endif value="active">Active</option>
                                         <option @if($card->status == 'draft') selected @endif value="active">Draft</option>
                                         <option @if($card->status == 'deactivated') selected @endif value="deactivated">Deactivated</option>
                                     </select>
                                 @else
                                     <select class="form-control" name="status">
-                                        <option @if( old('status') == '') selected @endif value="">None</option>
                                         <option @if( old('status') == 'active') selected @endif value="active">Active</option>
                                         <option @if( old('status') == 'draft') selected @endif value="active">Draft</option>
                                         <option @if( old('status') == 'deactivated') selected @endif value="deactivated">Deactivated</option>

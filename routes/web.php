@@ -45,11 +45,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 		 */
 		Route::get('/cards/list', 'CardsController@index')->name('admin.cards');
 		Route::get('/card/{slug}/view', 'CardsController@index')->name('admin.card.view');
+		Route::get('/card/details/{slug}','CardsController@show')->name('admin.card.details');
 		Route::get('/card/create','CardsController@create')->name('admin.card.create');
 		Route::post('/card/create','CardsController@store')->name('admin.card.create');
 		Route::get('/card/edit/{slug}','CardsController@edit')->name('admin.card.edit');
 		Route::post('/card/edit/{slug}','CardsController@update')->name('admin.card.edit');
-		Route::get('/card/delete/{slug}','CardsController@destroy')->name('admin.card.delete');
+		Route::get('/card/activate/{slug}','CardsController@activate')->name('admin.card.activate');
+		Route::get('/card/deactivate/{slug}','CardsController@deactivate')->name('admin.card.deactivate');
+		//Route::get('/card/delete/{slug}','CardsController@destroy')->name('admin.card.delete');
 		//Category
 		Route::get('/cards/category', 'CardCategoryController@index')->name('admin.cards.category');
 		Route::get('/cards/category/create', 'CardCategoryController@index')->name('admin.cards.category.create');

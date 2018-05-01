@@ -1,4 +1,27 @@
 @extends('admin.layouts.app')
+@section('css')
+    <style>
+        .sweet-alert {
+            box-sizing : border-box;
+            max-height : 100% !important;
+            overflow-y : auto !important;
+            padding : 0 17px 17px !important;
+            width : 512px;
+
+        //As default top and left are 50%, so it will transform those values and will set the modal exactly in the middle
+        transform: translate(-50%, -50%);
+
+        //remove margins
+        margin: 0;
+        }
+        .sweet-alert:before {
+            content : "";
+            display : block;
+            height : 17px;
+            width : 0;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="container-fluid">
         <!-- Start Page Content -->
@@ -39,9 +62,14 @@
                                             <td>{{ $card->title }}</td>
                                             <td>{{ $card->status }}</td>
                                             <td>
-                                                <a href="{{ route('admin.card.edit', ['id'=> $card->id]) }}" data-toggle="modal" data-target="#exampleModal" class="btn btn-success btn-xs"><i class="fa fa-pencil"></i> Details </a>
+                                                <button data-id="{{$card->id}}"data-url="{{ route('admin.card.details', ['id'=> $card->id]) }}" class="btn btn-success detailsBtn btn-xs"><i class="fa fa-pencil"></i> Details </button>
                                                 <a href="{{ route('admin.card.edit', ['id'=> $card->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                                                <a href="{{ route('admin.card.delete', ['id'=> $card->id]) }}" data-url="{{ route('admin.card.delete', ['id'=> $card->id]) }}" class="btn btn-danger btn-xs delBtn" data-id="{{$card->id}}"><i class="fa fa-trash-o"></i> Deactivate </a>
+                                                @if($card->status == 'active')
+                                                    <a href="{{ route('admin.card.deactivate', ['id'=> $card->id]) }}" data-url="{{ route('admin.card.deactivate', ['id'=> $card->id]) }}" class="btn btn-danger btn-xs deactBtn" data-id="{{$card->id}}"><i class="fa fa-trash-o"></i> Deactivate </a>
+                                                @else
+                                                    <a href="{{ route('admin.card.activate', ['id'=> $card->id]) }}" data-url="{{ route('admin.card.activate', ['id'=> $card->id]) }}" class="btn btn-info btn-xs actBtn" data-id="{{$card->id}}"><i class="fa fa-trash-o"></i> Activate </a>
+                                                @endif
+                                                <a style="display: none" href="#" id="backUrl" data-back="{{ route('admin.cards') }}"></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -89,20 +117,85 @@
     <script src="{{ asset('js/lib/datatables/datatables-init.js') }}"></script>
     <script src="{{ asset('js/lib/sweetalert/sweetalert.min.js') }}"></script>
     <script>
-        $(document).on('click', '.delBtn', function (e) {
-            $(".delBtn").attr("disabled", true);
+        var $loading = $('#loading').hide();
+        $(document).on('click', '.detailsBtn', function (e) {
+            $(this).before('<span id="loading"></span>');
             e.preventDefault();
             var id = $(this).data('id');
             var url = $(this).data('url');
+            var backUrl = $('#backUrl').data('back');
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            // add loading image to div
+            $('#loading').html('<img src="http://preloaders.net/preloaders/287/Filling%20broken%20ring.gif"> loading...');
+            $.ajax({
+                url: url,
+                type: "GET",
+                data: {
+                    _token: CSRF_TOKEN,
+                    id:id
+                },
+                dataType:'json',
+                success: function (data) {
+                    var title  = data[0]['title'];
+                    var status  = data[0]['status'];
+                    var card_details  = data[0]['card_details'];
+                    var apply_link  = data[0]['apply_link'];
+                    var intro_apr  = data[0]['intro_apr'];
+                    var regular_apr  = data[0]['regular_apr'];
+                    var annual_fee  = data[0]['annual_fee'];
+                    var credit_score  = data[0]['credit_score'];
+                    swal({
+                        title: "Card Details",
+                        text: '<table class="table">' +
+                        '<thead><tr>' +
+                        '<th>Card Details</th>' +
+                        '<th>apply_link</th>' +
+                        '<th>intro_appr</th>' +
+                        '<th>regular_apr</th>' +
+                        '<th>Annual Fee</th>' +
+                        '<th>Credit Score</th>' +
+                        '</tr></thead>' +
+                        '<tbody><tr>' +
+                        '<td>' + card_details + '</td>' +
+                        '<td>' + apply_link + '</td>' +
+                        '<td>' + intro_apr + '</td>' +
+                        '<td>' + regular_apr + '</td>' +
+                        '<td>' + annual_fee + '</td>' +
+                        '<td>' + credit_score + '</td>' +
+                        '</tr></tbody>' +
+                        '</table>',
+                        html: true,
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    swal("Error deactivating!", "Please try again", "error");
+                }
+            });
+        }).ajaxStart(function () {
+            $loading.show();
+            $('.detailsBtn').attr("disabled", true);
+        })
+            .ajaxStop(function () {
+                $('.detailsBtn').attr("disabled", false);
+                $('#loading').remove()
+            });
+        $(document).on('click', '.deactBtn', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            var url = $(this).data('url');
+            var backUrl = $('#backUrl').data('back');
             var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             swal({
-                title: "Are you sure you want to delete this category?",
-                text: "You will not be able to recover this category!",
+                title: "Deactivate Card?",
+                text: "Are you sure you want to do this?",
                 type: "warning",
                 showCancelButton: true,
+                showCloseButton: true,
+                //timer: 1500,
                 confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false
+                confirmButtonText: "Yes, go ahead!",
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true,
             }, function (isConfirm) {
                 if (!isConfirm) return;
                 $.ajax({
@@ -112,13 +205,60 @@
                         _token: CSRF_TOKEN,
                         id:id
                     },
-                    dataType: "html",
+                    dataType:'json',
                     success: function (data) {
-                        swal("Done!", "It was succesfully deleted!", "success");
-                        $(".delBtn").attr("disabled", false);
+                        swal({
+                            title: "Deactivated!",
+                            text: "Card Deactivated!",
+                            type: "success",
+                        },function() {
+                            window.location.href = backUrl;
+                        });
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
-                        swal("Error deleting!", "Please try again", "error");
+                        swal("Error deactivating!", "Please try again", "error");
+                    }
+                });
+            });
+        });
+        $(document).on('click', '.actBtn', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            var url = $(this).data('url');
+            var backUrl = $('#backUrl').data('back');
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            swal({
+                title: "Activate Card?",
+                text: "please Confirm your Activation?",
+                type: "success",
+                showCancelButton: true,
+                showCloseButton: true,
+                //timer: 1500,
+                confirmButtonColor: "#4BB543",
+                confirmButtonText: "Yes, go ahead!",
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true,
+            }, function (isConfirm) {
+                if (!isConfirm) return;
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    data: {
+                        _token: CSRF_TOKEN,
+                        id:id
+                    },
+                    dataType:'json',
+                    success: function (data) {
+                        swal({
+                            title: "Activated!",
+                            text: "Card Activated!",
+                            type: "success",
+                        },function() {
+                            window.location.href = backUrl;
+                        });
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        swal("Error deactivating!", "Please try again", "error");
                     }
                 });
             });
