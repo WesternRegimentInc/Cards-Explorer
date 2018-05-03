@@ -122,4 +122,9 @@ class AdminController extends Controller
 	public function profile(){
 		return view('admin.users.profile');
 	}
+	public function logout(Request $request)
+	{
+		$this->performLogout($request);
+		return redirect()->route('admin.login');
+	}
 }

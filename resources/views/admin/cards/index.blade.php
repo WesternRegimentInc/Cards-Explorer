@@ -147,28 +147,46 @@
                     swal({
                         title: "Card Details",
                         text: '<table class="table">' +
-                        '<thead><tr>' +
+                        '<tbody>' +
+                        '<tr>' +
+                        '<th>Card Title</th>' +
+                        '<td>' + title + '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<th>Card Status</th>' +
+                        '<td>' + status + '</td>' +
+                        '</tr>' +
+                        '<tr>' +
                         '<th>Card Details</th>' +
-                        '<th>apply_link</th>' +
-                        '<th>intro_appr</th>' +
-                        '<th>regular_apr</th>' +
-                        '<th>Annual Fee</th>' +
-                        '<th>Credit Score</th>' +
-                        '</tr></thead>' +
-                        '<tbody><tr>' +
                         '<td>' + card_details + '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<th>apply_link</th>' +
                         '<td>' + apply_link + '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<th>intro_appr</th>' +
                         '<td>' + intro_apr + '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<th>regular_apr</th>' +
                         '<td>' + regular_apr + '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<th>Annual Fee</th>' +
                         '<td>' + annual_fee + '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<th>Credit Score</th>' +
                         '<td>' + credit_score + '</td>' +
-                        '</tr></tbody>' +
+                        '</tr>' +
+                        '</tbody>' +
                         '</table>',
                         html: true,
                     });
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    swal("Error deactivating!", "Please try again", "error");
+                    swal("Error Connecting!", "Please try again", "error");
                 }
             });
         }).ajaxStart(function () {

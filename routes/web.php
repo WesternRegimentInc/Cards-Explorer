@@ -35,7 +35,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 		Route::get('/{id}/edit', 'AdminController@edit')->name('admin.edit');
 		Route::post('/{id}/edit', 'AdminController@update')->name('admin.edit');
 		Route::get('/{id}/delete', 'AdminController@destroy')->name('admin.delete');
-		Route::post('/logout', 'AdminLoginController@logout')->name('admin.logout');
+		Route::post('/logout', 'LoginController@logout')->name('admin.logout');
 		//users
 		Route::get('/users/list', 'AdminController@admin')->name('admin.user.list');
 		Route::get('/user/{id}/delete', 'AdminController@destroy')->name('admin.user.delete');
