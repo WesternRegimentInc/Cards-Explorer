@@ -18,9 +18,10 @@ class RedirectIfAdminAuthenticated
     {
         //If request comes from logged in user, he will
       //be redirect to home page.
-      if (Auth::guard('web')->check()) {
-          return redirect('/home');
-      }
+      //if (Auth::guard('web')->check()) {
+          //return redirect('/home');
+	      //return $next($request);
+      //}
 
       //If request comes from logged in admin, he will
       //be redirected to admin dashboard.

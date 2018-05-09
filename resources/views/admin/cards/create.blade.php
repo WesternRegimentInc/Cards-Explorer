@@ -101,13 +101,13 @@
                                 @if(isset($edit))
                                     <select class="form-control" name="status">
                                         <option @if($card->status == 'active') selected @endif value="active">Active</option>
-                                        <option @if($card->status == 'draft') selected @endif value="active">Draft</option>
+                                        <option @if($card->status == 'draft') selected @endif value="draft">Draft</option>
                                         <option @if($card->status == 'deactivated') selected @endif value="deactivated">Deactivated</option>
                                     </select>
                                 @else
                                     <select class="form-control" name="status">
                                         <option @if( old('status') == 'active') selected @endif value="active">Active</option>
-                                        <option @if( old('status') == 'draft') selected @endif value="active">Draft</option>
+                                        <option @if( old('status') == 'draft') selected @endif value="draft">Draft</option>
                                         <option @if( old('status') == 'deactivated') selected @endif value="deactivated">Deactivated</option>
                                     </select>
                                 @endif
