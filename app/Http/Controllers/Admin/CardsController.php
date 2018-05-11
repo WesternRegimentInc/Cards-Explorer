@@ -20,7 +20,9 @@ class CardsController extends Controller
 	}
 
 	public function index() {
-		$cards = Card::all();
+		$cards = Card::leftJoin('card_details','cards.id','=','card_details.card_id')
+		             //->where('cards.id','=','')
+		             ->select('*','cards.id as cid','card_details.id as did','card_details')->get();
 		return view('admin.cards.index', compact('cards'));
     }
 
@@ -32,7 +34,7 @@ class CardsController extends Controller
 	public function show($id) {
 		$card = Card::leftJoin('card_details','cards.id','=','card_details.card_id')
 		            ->where('cards.id','=',$id)
-		            ->select('*','cards.id as cid','card_details.id as did','card_details')->get();;
+		            ->select('*','cards.id as cid','card_details.id as did','card_details')->get();
 		return $card;
 	}
 

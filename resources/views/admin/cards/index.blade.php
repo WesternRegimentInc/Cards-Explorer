@@ -106,6 +106,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
+                                            <th>Card Category</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -117,16 +118,18 @@
                                                 <tr>
                                                     <td>{{ $i++ }}</td>
                                                     <td>{{ $card->title }}</td>
+                                                    <td>{{ $card->card_category }}</td>
                                                     <td>{{ $card->status }}</td>
                                                     <td>
-                                                        <button data-id="{{$card->id}}"data-url="{{ route('admin.card.details', ['id'=> $card->id]) }}" class="btn btn-success detailsBtn btn-xs"><i class="fa fa-pencil"></i> Details </button>
-                                                        <a href="{{ route('admin.card.edit', ['id'=> $card->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                                                        <button data-id="{{$card->cid}}"data-url="{{ route('admin.card.details', ['id'=> $card->cid]) }}" class="btn btn-success detailsBtn btn-xs"><i class="fa fa-pencil"></i> Details </button>
+                                                        <a href="{{ route('admin.card.edit', ['id'=> $card->cid]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
                                                         @if($card->status == 'active')
-                                                            <a href="{{ route('admin.card.deactivate', ['id'=> $card->id]) }}" data-url="{{ route('admin.card.deactivate', ['id'=> $card->id]) }}" class="btn btn-danger btn-xs deactBtn" data-id="{{$card->id}}"><i class="fa fa-trash-o"></i> Deactivate </a>
+                                                            <a href="{{ route('admin.card.deactivate', ['id'=> $card->cid]) }}" data-url="{{ route('admin.card.deactivate', ['id'=> $card->cid]) }}" class="btn btn-danger btn-xs deactBtn" data-id="{{$card->cid}}"><i class="fa fa-trash-o"></i> Deactivate </a>
                                                         @else
-                                                            <a href="{{ route('admin.card.activate', ['id'=> $card->id]) }}" data-url="{{ route('admin.card.activate', ['id'=> $card->id]) }}" class="btn btn-info btn-xs actBtn" data-id="{{$card->id}}"><i class="fa fa-trash-o"></i> Activate </a>
+                                                            <a href="{{ route('admin.card.activate', ['id'=> $card->cid]) }}" data-url="{{ route('admin.card.activate', ['id'=> $card->cid]) }}" class="btn btn-info btn-xs actBtn" data-id="{{$card->cid}}"><i class="fa fa-trash-o"></i> Activate </a>
                                                         @endif
                                                         <a style="display: none" href="#" id="backUrl" data-back="{{ route('admin.cards') }}"></a>
+                                                        <a style="display: none" href="#" id="homeUrl" data-back="{{ route('admin.cards') }}"></a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -207,6 +210,7 @@
         var url = $(this).data('url');
         var backUrl = $('#backUrl').data('back');
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        var homeURL = $(this).data('homeURL');
         // add loading image to div
         $('#loading').html('<img src="http://preloaders.net/preloaders/287/Filling%20broken%20ring.gif"> loading...');
         $.ajax({
@@ -218,6 +222,7 @@
             },
             dataType:'json',
             success: function (data) {
+                var card_id = data[0]['did']
                 var title  = data[0]['title'];
                 var status  = data[0]['status'];
                 var card_details  = data[0]['card_details'];
@@ -229,7 +234,8 @@
                 var credit_score  = data[0]['credit_score'];
                 swal({
                     title: "Card Details",
-                    text: '<table class="table">' +
+                    text: '<img src="http://cards.sap/storage/images/' + card_id + '/' + image + '" />' +
+                    '<table class="table">' +
                     '<tbody>' +
                     '<tr>' +
                     '<th>Card Title</th>' +
