@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300i,400,600,700,800');
-@import url(../icons/font-awesome/css/font-awesome.min.css);
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
 @import url(../icons/simple-line-icons/css/simple-line-icons.css);
 @import url(../icons/weather-icons/css/weather-icons.min.css);
 @import url(../icons/linea-icons/linea.css);
@@ -2533,20 +2533,20 @@ table.dataTable thead .sorting_desc_disabled {
   background: transparent none repeat scroll 0 0;
 }
 table.dataTable thead .sorting_asc::after {
-  content: "ïƒž";
+  content: "";
   cursor: pointer;
   font-family: fontawesome;
   margin-left: 10px;
 }
 table.dataTable thead .sorting_desc::after {
-  content: "ïƒ";
+  content: "";
   cursor: pointer;
   font-family: fontawesome;
   margin-left: 10px;
 }
 table.dataTable thead .sorting::after {
   color: rgba(50, 50, 50, 0.5);
-  content: "ïƒœ";
+  content: "";
   cursor: pointer;
   font-family: fontawesome !important;
   margin-left: 10px;
@@ -4181,7 +4181,7 @@ table.dataTable thead .sorting::after {
 .invoice-edit .tax:before,
 .invoice-edit #total_price:before,
 .invoice-edit #total_tax:before {
-  content: 'â‚¬';
+  content: '€';
 }
 .invoice-edit .me,
 .invoice-edit .info,
