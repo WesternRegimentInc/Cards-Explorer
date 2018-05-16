@@ -18,4 +18,9 @@ class StartController extends BaseController
 		$posts = Post::with(['author','attachment'])->type('post')->status('publish')->take(3)->orderBy('id', 'DESC')->get();
 		return view('start', compact('posts'));
 	}
+
+	public function cardList() {
+		$posts = Post::with(['author','attachment'])->type('post')->status('publish')->take(3)->orderBy('id', 'DESC')->get();
+		return view('card-list', compact('posts'));
+	}
 }

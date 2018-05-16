@@ -135,7 +135,6 @@
     </footer>
 
 
-
     <!-- Scroll Top Button -->
     <button class="scroll-top tran3s hvr-shutter-out-horizontal">
         <i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -181,10 +180,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjQLCCbRKFhsr8BY78g2PQ0_bTyrm_YXU" type="text/javascript"></script>
     <script src="{{ asset('vendor/sanzzy-map/dist/snazzy-info-window.min.js') }}"></script>
 
-
-    <!-- Theme js -->
-    <script type="text/javascript" src="js/theme.js"></script>
-    <script type="text/javascript" src="js/map-script.js"></script>
     @yield('js')
 </div> <!-- /.main-page-wrapper -->
 </body>

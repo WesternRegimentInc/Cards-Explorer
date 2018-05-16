@@ -335,4 +335,7 @@
 @endsection
 @section('js')
     {{-- Javascript here --}}
+    <!-- Theme js -->
+    <script type="text/javascript" src="js/theme.js"></script>
+    <!--<script type="text/javascript" src="js/map-script.js"></script>-->
 @endsection
