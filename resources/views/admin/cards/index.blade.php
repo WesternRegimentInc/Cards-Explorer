@@ -139,7 +139,8 @@
                 },
                 dataType:'json',
                 success: function (data) {
-                    var card_id = data[0]['did']
+                    var base_url = window.location.origin;
+                    var card_id = data[0]['did'];
                     var title  = data[0]['title'];
                     var status  = data[0]['status'];
                     var card_details  = data[0]['card_details'];
@@ -151,7 +152,7 @@
                     var credit_score  = data[0]['credit_score'];
                     swal({
                         title: "Card Details",
-                        text: '<img src="http://cards.sap/storage/images/' + card_id + '/' + image + '" />' +
+                        text: '<img src="' + base_url + '/storage/images/' + card_id + '/' + image + '" />' +
                         '<table class="table">' +
                         '<tbody>' +
                         '<tr>' +
